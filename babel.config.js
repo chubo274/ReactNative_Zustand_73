@@ -9,7 +9,7 @@ module.exports = {
                 alias: {
                     shared: './app/shared/',
                     components: './app/modules/components/',
-                    screens: './app/modules/screens/',
+                    screen: './app/modules/screen/',
                     app: './app/',
                 },
             },
