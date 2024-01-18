@@ -1,12 +1,6 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
-# Getting Started
-
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
 ## Step 1: Start the dev server
-yarn ios --mode Release
-yarn android --mode release
+yarn ios --mode Release/Develop<br />
+yarn android --mode release/Develop<br />
 
 ## Step 2: Start the debug using Hermes with flipper
 for android: need choose again Android SDK location same as Android Studio manage SDK<br />
