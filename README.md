@@ -7,4 +7,3 @@ for android: need choose again Android SDK location same as Android Studio manag
 for ios: need install and choose IDB location by:<br />
     - step1: install by cmd: pip3  install --user fb-idb<br />
     - step2: choose location: /Users/<your_username>/Library/Python/<python_version>/bin/idb<br />
-
