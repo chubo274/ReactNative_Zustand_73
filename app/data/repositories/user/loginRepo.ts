@@ -1,7 +1,7 @@
 import ApiGateway from 'app/data/api'
 import { urls } from 'app/data/api/resource'
 import { UserModel } from 'app/models/user/UserModel'
-import { ISessionStorage } from 'app/zustand/interfaceZustand'
+import { ISessionStorage } from 'app/zustand/keyZustand'
 import { AxiosResponse } from 'axios'
 import { setTokenUser } from 'shared/helpers/function'
 
