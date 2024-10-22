@@ -1,9 +1,9 @@
 import { SessionStorage } from 'app/App'
 import StoreZustand from 'app/zustand'
-import { ISessionStorage } from 'app/zustand/interfaceZustand'
 import { IAppToast } from 'components/toast/AppToast'
 import { DeviceEventEmitter } from 'react-native'
 import { EmitType } from './constant'
+import { ISessionStorage } from 'app/zustand/keyZustand'
 
 /// parse formData for body api
 export const parseFormData = (data: any, keepFormData?: boolean): FormData => {

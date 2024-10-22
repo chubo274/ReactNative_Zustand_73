@@ -11,11 +11,10 @@ import {
     NavigationContainer,
     NavigationContainerRef
 } from '@react-navigation/native';
-import { ISessionStorage } from 'app/zustand/interfaceZustand';
-import { useOnlyGetStoreKey } from 'app/zustand/keyZustand';
+import { ISessionStorage, ZustandKeyPersist } from 'app/zustand/keyZustand';
 import { ImageLoading } from 'components/image/ImageLoading';
 import { AppToast } from 'components/toast/AppToast';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Platform, StatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Host } from 'react-native-portalize';
@@ -23,7 +22,8 @@ import NavigationService from 'shared/helpers/NavigationService';
 import { configureLocalization, LANGUAGES } from 'shared/localization';
 import ThemeProvider from 'shared/theme';
 import RootStack from './modules/navigation';
-import { getLocal, useSave } from './zustand';
+import { useSave } from './zustand';
+import { getLocal } from './zustand/asyncStoreFunc';
 
 export const SessionStorage: ISessionStorage = {
     token: ''
@@ -42,11 +42,15 @@ const App = () => {
         configureLocalization(value);
     });
 
-    Object.keys(useOnlyGetStoreKey).forEach((key: any) => {
-        getLocal(key).then((value: any) => {
-            save(key, value)
+    useEffect(() => {
+        ZustandKeyPersist.forEach((key: any) => {
+            if (key != 'Localization') {
+                getLocal(key).then((value: any) => {
+                    save(key, value)
+                })
+            }
         })
-    })
+    }, [save])
 
     return <ThemeProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>

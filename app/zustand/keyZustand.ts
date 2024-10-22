@@ -1,19 +1,19 @@
 import { LANGUAGES } from 'shared/localization'
 import { ModeTheme } from 'shared/theme';
-import { ISessionStorage } from './interfaceZustand';
 
-export interface KeyZustand extends StoreKey {
+export interface ISessionStorage {
+  token?: string;
+  refreshToken?: string;
 }
 
-export interface StoreKey {
-    Token: ISessionStorage,
-    Localization: LANGUAGES,
-    ThemeApp: ModeTheme,
-}
+export const ZustandKeyPersist: (keyof ZustandModel)[] = [
+    'Localization',
+    'ThemeApp',
+];
 
-// after crate new key interface above, need add default value for this variable. It needed when use Object.keys
-export const useOnlyGetStoreKey: StoreKey = {
-    Token: {},
-    Localization: LANGUAGES.ENGLISH,
-    ThemeApp: ModeTheme.Default
+// if change name of any key in ZustandModel, need check and change for all proj about store
+export interface ZustandModel {
+  Token?: ISessionStorage,
+  Localization?: LANGUAGES,
+  ThemeApp?: ModeTheme,
 }
